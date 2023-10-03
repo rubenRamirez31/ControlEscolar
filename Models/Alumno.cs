@@ -3,8 +3,14 @@ using System.Collections.Generic;
 
 namespace ServicioSocial.Models;
 
-public partial class Alumno
+public partial class Alumnos
 {
+
+    public Alumnos()
+{
+    Kardex = new HashSet<Kardex>(); //
+}
+
     public string NoControl { get; set; } = null!;
 
     public string Curp { get; set; } = null!;
@@ -21,19 +27,19 @@ public partial class Alumno
 
     public string Pwd { get; set; } = null!;
 
-    public virtual ICollection<Calificacione> Calificaciones { get; set; } = new List<Calificacione>();
+    public virtual ICollection<Calificaciones> Calificaciones { get; set; } = new List<Calificaciones>();
 
     public virtual Datosgeneralesalumno CurpNavigation { get; set; } = null!;
 
-    public virtual Documento? Documento { get; set; }
+    public virtual Documentos? Documento { get; set; }
 
-    public virtual Carrera IdCarreraNavigation { get; set; } = null!;
+    public virtual Carreras IdCarreraNavigation { get; set; } = null!;
 
-    public virtual Especialidade IdEspecialidadNavigation { get; set; } = null!;
+    public virtual Especialidades IdEspecialidadNavigation { get; set; } = null!;
 
     public virtual Estatusalumno IdEstatusNavigation { get; set; } = null!;
 
-    public virtual Modalidade IdModalidadNavigation { get; set; } = null!;
+    public virtual Modalidades IdModalidadNavigation { get; set; } = null!;
 
-    public virtual ICollection<Kardex> Kardices { get; set; } = new List<Kardex>();
+    public virtual ICollection<Kardex> Kardex { get; set; } = new List<Kardex>(); //el nombre se cambio de kardex a kardixes "averiguar porque aparecia de esa manera"
 }

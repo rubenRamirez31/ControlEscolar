@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ServicioSocial.Models;
 
-public partial class Role
+public partial class Roles
 {
     public sbyte Id { get; set; }
 

@@ -15,47 +15,47 @@ public partial class DbcontrolEscolarContext : DbContext
     {
     }
 
-    public virtual DbSet<Alumno> Alumnos { get; set; }
+    public virtual DbSet<Alumnos> Alumnos { get; set; }
 
-    public virtual DbSet<Aula> Aulas { get; set; }
+    public virtual DbSet<Aulas> Aulas { get; set; }
 
-    public virtual DbSet<Calificacione> Calificaciones { get; set; }
+    public virtual DbSet<Calificaciones> Calificaciones { get; set; }
 
-    public virtual DbSet<Carrera> Carreras { get; set; }
+    public virtual DbSet<Carreras> Carreras { get; set; }
 
-    public virtual DbSet<Colonia> Colonias { get; set; }
+    public virtual DbSet<Colonias> Colonias { get; set; }
 
     public virtual DbSet<Datosgeneralesalumno> Datosgeneralesalumnos { get; set; }
 
-    public virtual DbSet<Datosgeneralestrabajadore> Datosgeneralestrabajadores { get; set; }
+    public virtual DbSet<Datosgeneralestrabajadores> Datosgeneralestrabajadores { get; set; }
 
-    public virtual DbSet<Docente> Docentes { get; set; }
+    public virtual DbSet<Docentes> Docentes { get; set; }
 
-    public virtual DbSet<Documento> Documentos { get; set; }
+    public virtual DbSet<Documentos> Documentos { get; set; }
 
-    public virtual DbSet<Especialidade> Especialidades { get; set; }
+    public virtual DbSet<Especialidades> Especialidades { get; set; }
 
-    public virtual DbSet<Estado> Estados { get; set; }
+    public virtual DbSet<Estados> Estados { get; set; }
 
     public virtual DbSet<Estatusalumno> Estatusalumnos { get; set; }
 
-    public virtual DbSet<Grupo> Grupos { get; set; }
+    public virtual DbSet<Grupos> Grupos { get; set; }
 
     public virtual DbSet<Kardex> Kardices { get; set; }
 
     public virtual DbSet<Lista> Listas { get; set; }
 
-    public virtual DbSet<Materia> Materias { get; set; }
+    public virtual DbSet<Materias> Materias { get; set; }
 
-    public virtual DbSet<Modalidade> Modalidades { get; set; }
+    public virtual DbSet<Modalidades> Modalidades { get; set; }
 
-    public virtual DbSet<Municipio> Municipios { get; set; }
+    public virtual DbSet<Municipios> Municipios { get; set; }
 
-    public virtual DbSet<Paise> Paises { get; set; }
+    public virtual DbSet<Paises> Paises { get; set; }
 
-    public virtual DbSet<Periodo> Periodos { get; set; }
+    public virtual DbSet<Periodos> Periodos { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<Roles> Roles { get; set; }
 
     public virtual DbSet<Tipoacreditado> Tipoacreditados { get; set; }
 
@@ -69,7 +69,7 @@ public partial class DbcontrolEscolarContext : DbContext
             .UseCollation("utf8mb4_0900_ai_ci")
             .HasCharSet("utf8mb4");
 
-        modelBuilder.Entity<Alumno>(entity =>
+        modelBuilder.Entity<Alumnos>(entity =>
         {
             entity.HasKey(e => e.NoControl).HasName("PRIMARY");
 
@@ -92,7 +92,8 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.IdEstatus).HasMaxLength(2);
             entity.Property(e => e.Pwd).HasMaxLength(50);
 
-            entity.HasOne(d => d.CurpNavigation).WithMany(p => p.Alumnos)
+            entity.HasOne(d => d.CurpNavigation)
+            .WithMany(p => p.Alumnos)
                 .HasForeignKey(d => d.Curp)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_al_dg");
@@ -114,7 +115,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fl_alu_mod");
         });
 
-        modelBuilder.Entity<Aula>(entity =>
+        modelBuilder.Entity<Aulas>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -126,7 +127,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasColumnName("Aula");
         });
 
-        modelBuilder.Entity<Calificacione>(entity =>
+        modelBuilder.Entity<Calificaciones>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -150,7 +151,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_cal_mat");
         });
 
-        modelBuilder.Entity<Carrera>(entity =>
+        modelBuilder.Entity<Carreras>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -163,7 +164,7 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.InicioVigencia).HasColumnName("Inicio_Vigencia");
         });
 
-        modelBuilder.Entity<Colonia>(entity =>
+        modelBuilder.Entity<Colonias>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -232,7 +233,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_dga_loc");
         });
 
-        modelBuilder.Entity<Datosgeneralestrabajadore>(entity =>
+        modelBuilder.Entity<Datosgeneralestrabajadores>(entity =>
         {
             entity.HasKey(e => e.Rfc).HasName("PRIMARY");
 
@@ -262,7 +263,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_dgt_loc");
         });
 
-        modelBuilder.Entity<Docente>(entity =>
+        modelBuilder.Entity<Docentes>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -281,7 +282,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_doc_carr");
         });
 
-        modelBuilder.Entity<Documento>(entity =>
+        modelBuilder.Entity<Documentos>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -295,12 +296,12 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.IdAlumno).HasMaxLength(10);
 
             entity.HasOne(d => d.IdAlumnoNavigation).WithOne(p => p.Documento)
-                .HasForeignKey<Documento>(d => d.IdAlumno)
+                .HasForeignKey<Documentos>(d => d.IdAlumno)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_doc_alum");
         });
 
-        modelBuilder.Entity<Especialidade>(entity =>
+        modelBuilder.Entity<Especialidades>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -315,7 +316,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_esp_carr");
         });
 
-        modelBuilder.Entity<Estado>(entity =>
+        modelBuilder.Entity<Estados>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -349,7 +350,7 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.Estatus).HasMaxLength(30);
         });
 
-        modelBuilder.Entity<Grupo>(entity =>
+        modelBuilder.Entity<Grupos>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -446,7 +447,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_lis_per");
         });
 
-        modelBuilder.Entity<Materia>(entity =>
+        modelBuilder.Entity<Materias>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -464,7 +465,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_mat_carr");
         });
 
-        modelBuilder.Entity<Modalidade>(entity =>
+        modelBuilder.Entity<Modalidades>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -473,7 +474,7 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.Modalidad).HasMaxLength(40);
         });
 
-        modelBuilder.Entity<Municipio>(entity =>
+        modelBuilder.Entity<Municipios>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -497,7 +498,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_estado");
         });
 
-        modelBuilder.Entity<Paise>(entity =>
+        modelBuilder.Entity<Paises>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -514,7 +515,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasCharSet("utf8mb3");
         });
 
-        modelBuilder.Entity<Periodo>(entity =>
+        modelBuilder.Entity<Periodos>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
@@ -526,7 +527,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasColumnName("Periodo");
         });
 
-        modelBuilder.Entity<Role>(entity =>
+        modelBuilder.Entity<Roles>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 

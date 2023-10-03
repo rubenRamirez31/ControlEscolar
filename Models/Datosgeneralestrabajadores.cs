@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ServicioSocial.Models;
 
-public partial class Datosgeneralestrabajadore
+public partial class Datosgeneralestrabajadores
 {
     public string Rfc { get; set; } = null!;
 
@@ -27,5 +27,5 @@ public partial class Datosgeneralestrabajadore
 
     public ulong EsDocente { get; set; }
 
-    public virtual Colonia IdLocalidadNavigation { get; set; } = null!;
+    public virtual Colonias IdLocalidadNavigation { get; set; } = null!;
 }

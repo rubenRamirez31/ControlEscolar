@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ServicioSocial.Models;
 
 public partial class Datosgeneralesalumno
 {
+    public Datosgeneralesalumno()
+    {
+        Alumnos = new HashSet<Alumnos>();
+    }
     public string Curp { get; set; } = null!;
 
     public string Nombre { get; set; } = null!;
 
+    [Display(Name ="Apellido Paterno")]
     public string Apaterno { get; set; } = null!;
 
     public string Amaterno { get; set; } = null!;
@@ -27,7 +33,7 @@ public partial class Datosgeneralesalumno
 
     public string? UrlFoto { get; set; }
 
-    public virtual ICollection<Alumno> Alumnos { get; set; } = new List<Alumno>();
+    public virtual ICollection<Alumnos> Alumnos { get; set; } = new List<Alumnos>();
 
-    public virtual Colonia IdLocalidadNavigation { get; set; } = null!;
+    public virtual Colonias IdLocalidadNavigation { get; set; } = null!;
 }
