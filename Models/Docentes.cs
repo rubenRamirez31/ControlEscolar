@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+#nullable disable
+
+
 namespace ServicioSocial.Models;
 
 public partial class Docentes

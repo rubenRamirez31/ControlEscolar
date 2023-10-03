@@ -43,7 +43,7 @@ public partial class DbcontrolEscolarContext : DbContext
 
     public virtual DbSet<Kardex> Kardices { get; set; }
 
-    public virtual DbSet<Lista> Listas { get; set; }
+    // public virtual DbSet<Lista> Listas { get; set; }
 
     public virtual DbSet<Materias> Materias { get; set; }
 
@@ -423,29 +423,29 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasConstraintName("fk_kr_alu");
         });
 
-        modelBuilder.Entity<Lista>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
+        // modelBuilder.Entity<Lista>(entity =>
+        // {
+        //     entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("listas");
+        //     entity.ToTable("listas");
 
-            entity.HasIndex(e => e.IdGrupo, "fk_lis_gru");
+        //     entity.HasIndex(e => e.IdGrupo, "fk_lis_gru");
 
-            entity.HasIndex(e => e.IdPeriodo, "fk_lis_per");
+        //     entity.HasIndex(e => e.IdPeriodo, "fk_lis_per");
 
-            entity.Property(e => e.IdGrupo).HasMaxLength(4);
-            entity.Property(e => e.NoControl).HasMaxLength(10);
+        //     entity.Property(e => e.IdGrupo).HasMaxLength(4);
+        //     entity.Property(e => e.NoControl).HasMaxLength(10);
 
-            entity.HasOne(d => d.IdGrupoNavigation).WithMany(p => p.Lista)
-                .HasForeignKey(d => d.IdGrupo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_lis_gru");
+        //     entity.HasOne(d => d.IdGrupoNavigation).WithMany(p => p.Lista)
+        //         .HasForeignKey(d => d.IdGrupo)
+        //         .OnDelete(DeleteBehavior.ClientSetNull)
+        //         .HasConstraintName("fk_lis_gru");
 
-            entity.HasOne(d => d.IdPeriodoNavigation).WithMany(p => p.Lista)
-                .HasForeignKey(d => d.IdPeriodo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_lis_per");
-        });
+        //     entity.HasOne(d => d.IdPeriodoNavigation).WithMany(p => p.Lista)
+        //         .HasForeignKey(d => d.IdPeriodo)
+        //         .OnDelete(DeleteBehavior.ClientSetNull)
+        //         .HasConstraintName("fk_lis_per");
+        // });
 
         modelBuilder.Entity<Materias>(entity =>
         {
