@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
+
 namespace ServicioSocial.Models;
 
 public partial class Carreras

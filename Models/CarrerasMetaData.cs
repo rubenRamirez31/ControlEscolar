@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.ComponentModel.DataAnnotations;
 
+#nullable disable //se agrego anotacion para evitar que haya datos nulos
+
+
 namespace ServicioSocial.Models
 {
     public class CarrerasMetaData

@@ -30,7 +30,7 @@ public partial class Kardex
     public virtual Periodos IdPeriodoNavigation { get; set; } = null!;
 
     [Display(Name = "Tipo de Acreditacion")]
-    public virtual Tipoacreditado? IdTipoAcreditadoNavigation { get; set; }
+    public virtual Tipoacreditado IdTipoAcreditadoNavigation { get; set; }
 
     [Display(Name = "Numero de Control")]
     public virtual Alumnos NoControlNavigation { get; set; } = null!;

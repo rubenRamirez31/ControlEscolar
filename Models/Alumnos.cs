@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace ServicioSocial.Models;
 
+#nullable disable
+
 public partial class Alumnos
 {
 
@@ -31,7 +33,7 @@ public partial class Alumnos
 
     public virtual Datosgeneralesalumno CurpNavigation { get; set; } = null!;
 
-    public virtual Documentos? Documento { get; set; }
+    public virtual Documentos Documentos { get; set; }
 
     public virtual Carreras IdCarreraNavigation { get; set; } = null!;
 

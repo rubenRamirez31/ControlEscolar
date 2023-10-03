@@ -18,7 +18,7 @@ public partial class Calificaciones
     [Display(Name = "Calificación")]
     public int? Calificacion { get; set; }
 
-    // public virtual Alumnos? IdAlumnoNavigation { get; set; }
+     public virtual Alumnos? IdAlumnoNavigation { get; set; }
 
-    // public virtual Materias? IdMateriaNavigation { get; set; }
+     public virtual Materias? IdMateriaNavigation { get; set; }
 }

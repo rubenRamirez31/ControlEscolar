@@ -197,7 +197,7 @@ public partial class DbcontrolEscolarContext : DbContext
                 .HasDefaultValueSql("''")
                 .HasColumnName("nombre");
 
-            entity.HasOne(d => d.MunicipioNavigation).WithMany(p => p.Colonia)
+            entity.HasOne(d => d.MunicipioNavigation).WithMany(p => p.Colonias)
                 .HasForeignKey(d => d.Municipio)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_municipio");
@@ -228,7 +228,7 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.Sexo).HasMaxLength(1);
             entity.Property(e => e.UrlFoto).HasMaxLength(100);
 
-            entity.HasOne(d => d.IdLocalidadNavigation).WithMany(p => p.Datosgeneralesalumnos)
+            entity.HasOne(d => d.IdLocalidadNavigation).WithMany(p => p.Datosgeneralesalumno)
                 .HasForeignKey(d => d.IdLocalidad)
                 .HasConstraintName("fk_dga_loc");
         });
@@ -295,7 +295,7 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.ComprobanteDomicilio).HasColumnType("mediumblob");
             entity.Property(e => e.IdAlumno).HasMaxLength(10);
 
-            entity.HasOne(d => d.IdAlumnoNavigation).WithOne(p => p.Documento)
+            entity.HasOne(d => d.IdAlumnoNavigation).WithOne(p => p.Documentos)
                 .HasForeignKey<Documentos>(d => d.IdAlumno)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_doc_alum");
@@ -405,20 +405,20 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.Property(e => e.IdMateria).HasMaxLength(8);
             entity.Property(e => e.NoControl).HasMaxLength(10);
 
-            entity.HasOne(d => d.IdMateriaNavigation).WithMany(p => p.Kardices)
+            entity.HasOne(d => d.IdMateriaNavigation).WithMany(p => p.Kardex)
                 .HasForeignKey(d => d.IdMateria)
                 .HasConstraintName("fk_kr_mat");
 
-            entity.HasOne(d => d.IdPeriodoNavigation).WithMany(p => p.Kardices)
+            entity.HasOne(d => d.IdPeriodoNavigation).WithMany(p => p.Kardex)
                 .HasForeignKey(d => d.IdPeriodo)
                 .HasConstraintName("fk_kr_per");
 
-            entity.HasOne(d => d.IdTipoAcreditadoNavigation).WithMany(p => p.Kardices)
+            entity.HasOne(d => d.IdTipoAcreditadoNavigation).WithMany(p => p.Kardex)
                 .HasForeignKey(d => d.IdTipoAcreditado)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_kr_ta");
 
-            entity.HasOne(d => d.NoControlNavigation).WithMany(p => p.Kardices)
+            entity.HasOne(d => d.NoControlNavigation).WithMany(p => p.Kardex)
                 .HasForeignKey(d => d.NoControl)
                 .HasConstraintName("fk_kr_alu");
         });
@@ -456,11 +456,11 @@ public partial class DbcontrolEscolarContext : DbContext
             entity.HasIndex(e => e.IdCarrera, "fk_mat_carr");
 
             entity.Property(e => e.Id).HasMaxLength(8);
-            entity.Property(e => e.Materia1)
+            entity.Property(e => e.Materia)
                 .HasMaxLength(60)
                 .HasColumnName("Materia");
 
-            entity.HasOne(d => d.IdCarreraNavigation).WithMany(p => p.Materia)
+            entity.HasOne(d => d.IdCarreraNavigation).WithMany(p => p.Materias)
                 .HasForeignKey(d => d.IdCarrera)
                 .HasConstraintName("fk_mat_carr");
         });

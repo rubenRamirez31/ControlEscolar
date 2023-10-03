@@ -31,5 +31,5 @@ public partial class Materias
     [Display(Name = "Carrera")]
     public virtual Carreras IdCarreraNavigation { get; set; } = null!;
 
-    public virtual ICollection<Kardex> Kardices { get; set; } = new List<Kardex>();
+    public virtual ICollection<Kardex> Kardex { get; set; } = new List<Kardex>();
 }

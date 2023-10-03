@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
+
 namespace ServicioSocial.Models;
 
 public partial class Datosgeneralestrabajadores
@@ -17,9 +20,9 @@ public partial class Datosgeneralestrabajadores
 
     public string Sexo { get; set; } = null!;
 
-    public byte[]? Foto { get; set; }
+    public byte[] Foto { get; set; }
 
-    public string? Direccion { get; set; }
+    public string Direccion { get; set; }
 
     public int Cp { get; set; }
 

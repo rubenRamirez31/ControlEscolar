@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
+
 namespace ServicioSocial.Models;
 
 public partial class Colonias
@@ -16,11 +19,11 @@ public partial class Colonias
 
     public string Nombre { get; set; } = null!;
 
-    public string? Ciudad { get; set; }
+    public string Ciudad { get; set; }
 
     public int? Municipio { get; set; }
 
-    public string? Asentamiento { get; set; }
+    public string Asentamiento { get; set; }
 
     public int? CodigoPostal { get; set; }
 
@@ -28,5 +31,5 @@ public partial class Colonias
 
     public virtual ICollection<Datosgeneralestrabajadores> Datosgeneralestrabajadores { get; set; } = new List<Datosgeneralestrabajadores>();
 
-    public virtual Municipios? MunicipioNavigation { get; set; }
+    public virtual Municipios MunicipioNavigation { get; set; }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//#nullable disable habilitar o no esta anotacion
+
+
 namespace ServicioSocial.Models
 {
     public class Correo

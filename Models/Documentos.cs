@@ -20,5 +20,5 @@ public partial class Documentos
     [Display(Name = "Comprobante de Domicilio")]
     public byte[]? ComprobanteDomicilio { get; set; }
 
-    //public virtual Alumnos? IdAlumnoNavigation { get; set; }
+    public virtual Alumnos? IdAlumnoNavigation { get; set; }
 }
