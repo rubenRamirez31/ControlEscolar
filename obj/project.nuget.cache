@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rB1D3NPOIPXFUPTpe7NBMy0dhllXApZzAVDiQQk2BQxyZjvu4hFvm9kDcgg0AS2jQfEG45RUZUg6OjkdIW4+mQ==",
+  "dgSpecHash": "O3XG2b64zN7GbmNMb9gyneIc831cB+bX/U9/63/4aHNuy2KvRVGRhGuhCIIqmSS/DK3QR/aDtlWnuw/7cElLPw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ruben\\OneDrive\\Documentos\\ServicioSocial\\ServicioSocial.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ruben\\.nuget\\packages\\dapper\\2.1.4\\dapper.2.1.4.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
@@ -22,6 +23,7 @@
     "C:\\Users\\ruben\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\ruben\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
